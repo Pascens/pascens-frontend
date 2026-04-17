@@ -3,7 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-//Button properties interfaces
+//Button properties interfaces 
 interface ButtonProps {
   title: string;
   onPress: () => void;
