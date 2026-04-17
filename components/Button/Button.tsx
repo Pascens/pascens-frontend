@@ -1,13 +1,14 @@
-import { MaterialIcons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Colors } from "@/constants/theme";
+import { MaterialIcons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-//Button properties interfaces
+// Button properties interfaces
 interface ButtonProps {
   title: string;
   onPress: () => void;
-  variant: 'green' | 'white';
+  variant: "green" | "white";
   iconName?: keyof typeof MaterialIcons.glyphMap;
 }
 
@@ -17,16 +18,16 @@ interface ButtonProps {
  * * @component
  */
 const Button: React.FC<ButtonProps> = ({ title, onPress, variant, iconName }) => {
-  const isPrimary = variant === 'green';
+  const isPrimary = variant === "green";
 
   const renderContent = () => (
     <View style={styles.content}>
       {iconName && (
-        <MaterialIcons 
-          name={iconName} 
-          size={22} 
-          color={isPrimary ? "#FFFFFF" : "#2FAB88"} 
-          style={styles.icon} 
+        <MaterialIcons
+          name={iconName}
+          size={22}
+          color={isPrimary ? "#FFFFFF" : Colors.primary}
+          style={styles.icon}
         />
       )}
       <Text style={[styles.textBase, isPrimary ? styles.textWhite : styles.textGreen]}>
@@ -39,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, variant, iconName }) =>
     <TouchableOpacity onPress={onPress} activeOpacity={0.8} style={styles.wrapper}>
       {isPrimary ? (
         <LinearGradient
-          colors={['#2FC767', '#2FAB88']}
+          colors={[Colors.secondary, Colors.primary]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={styles.buttonBase}
@@ -47,16 +48,13 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, variant, iconName }) =>
           {renderContent()}
         </LinearGradient>
       ) : (
-
         <LinearGradient
-          colors={['#2FC767', '#2FAB88']}
+          colors={[Colors.secondary, Colors.primary]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          style={[styles.buttonBase, { padding: 2 }]} 
+          style={styles.gradientBorder}
         >
-          <View style={styles.btnSecondary}>
-            {renderContent()}
-          </View>
+          <View style={styles.btnSecondary}>{renderContent()}</View>
         </LinearGradient>
       )}
     </TouchableOpacity>
@@ -66,38 +64,42 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, variant, iconName }) =>
 const styles = StyleSheet.create({
   wrapper: {
     marginVertical: 8,
-    width: '100%',
+    width: "100%",
   },
   buttonBase: {
     paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 10, 
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
     minHeight: 52,
   },
+  gradientBorder: {
+    padding: 2,
+    borderRadius: 10,
+  },
   btnSecondary: {
-
-    backgroundColor: '#FFFFFF',
-    width: '100%',
-    height: '100%',
-    borderRadius: 8, 
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    minHeight: 48,
+    alignItems: "center",
+    justifyContent: "center",
   },
   textBase: {
     fontSize: 17,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   textWhite: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
   },
   textGreen: {
-    color: '#2FAB88',
+    color: Colors.primary,
   },
   content: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   icon: {
     marginRight: 10,
