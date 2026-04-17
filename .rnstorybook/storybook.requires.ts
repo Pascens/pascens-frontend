@@ -2,19 +2,19 @@
 /// <reference types="@storybook/react-native/metro-env" />
 import { start, updateView, View, type Features } from '@storybook/react-native';
 
-import "@storybook/addon-ondevice-controls/register";
 import "@storybook/addon-ondevice-actions/register";
+import "@storybook/addon-ondevice-controls/register";
 
 const normalizedStories = [
   {
     titlePrefix: "",
     directory: "./components",
-    files: "**/*.stories.?(ts|tsx|js|jsx)",
-    importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    files: "*/.stories.?(ts|tsx|js|jsx)",
+    importPathMatcher: /^\.[\\/](?:(?!\.)(?=.)[^/]*?\/\.stories\.(?:ts|tsx|js|jsx)?)$/,
     req: require.context(
       '../components',
       true,
-      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+      /^\.[\\/](?:(?!\.)(?=.)[^/]*?\/\.stories\.(?:ts|tsx|js|jsx)?)$/
     ),
   }
 ];

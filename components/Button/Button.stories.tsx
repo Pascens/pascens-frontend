@@ -12,7 +12,7 @@ const meta = {
       </View>
     ),
   ],
-  // Esto vincula el evento a la pestaña "Actions" de Storybook
+
   argTypes: {
     onPress: { action: 'pressed' },
   },
@@ -25,7 +25,7 @@ export const Primary: Story = {
   args: {
     variant: 'green',
     title: 'Crear cuenta',
-    onPress: () => {}, // ✅ Ahora TypeScript sabe que el botón tiene su acción obligatoria
+    onPress: () => {},
   },
 };
 
@@ -33,7 +33,7 @@ export const Secondary: Story = {
   args: {
     variant: 'white',
     title: 'Ya tengo cuenta',
-    onPress: () => {}, // ✅ Agregado
+    onPress: () => {}, 
   },
 };
 
@@ -42,7 +42,7 @@ export const WithIcon: Story = {
     variant: 'green',
     title: 'Tomar Foto',
     iconName: 'photo-camera',
-    onPress: () => {}, // ✅ Agregado
+    onPress: () => {}, 
   },
 };
 
