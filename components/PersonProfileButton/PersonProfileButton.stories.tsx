@@ -25,20 +25,29 @@ export const Selected: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const WithSubtitle: Story = {
   args: {
-    label: "Masculino",
-    iconName: "male-outline",
+    label: "Niña",
+    iconName: "happy-outline",
+    subtitle: "3-12 años",
     selected: false,
-    disabled: true,
   },
 };
 
-export const DisabledSelected: Story = {
+export const WithSubtitleSelected: Story = {
   args: {
-    label: "Femenino",
-    iconName: "female-outline",
+    label: "Adulta mayor",
+    iconName: "accessibility-outline",
+    subtitle: "60+ años",
     selected: true,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    label: "Otro",
+    iconName: "ellipse-outline",
+    selected: false,
     disabled: true,
   },
 };
