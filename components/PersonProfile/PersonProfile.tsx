@@ -1,3 +1,4 @@
+import { Colors } from "@/constants/theme";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 type PersonProfileProps = {
@@ -28,7 +29,6 @@ const PersonProfile = ({
       </View>
 
       <View style={styles.dataHolder}>
-        {/* Name + Role badge */}
         <View style={styles.nameHeader}>
           <Text style={styles.name}>{name}</Text>
           {role && (
@@ -38,7 +38,6 @@ const PersonProfile = ({
           )}
         </View>
 
-        {/* Stage tags */}
         {stage && stage.length > 0 && (
           <View style={styles.tagsRow}>
             {stage.map((s, i) => (
@@ -49,7 +48,6 @@ const PersonProfile = ({
           </View>
         )}
 
-        {/* Condition tags */}
         {conditions && conditions.length > 0 && (
           <View style={styles.tagsRow}>
             {conditions.map((c, i) => (
@@ -60,7 +58,6 @@ const PersonProfile = ({
           </View>
         )}
 
-        {/* Last scanned */}
         {lastScaned && (
           <Text style={styles.lastScaned}>Último escaneo: {lastScaned}</Text>
         )}
@@ -73,8 +70,8 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#E5E7EB",
-    backgroundColor: "#FFFFFF",
+    borderColor: Colors.gray,
+    backgroundColor: Colors.light.background,
     width: "100%",
     padding: 12,
     flexDirection: "row",
@@ -98,16 +95,16 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 16,
     fontWeight: "700",
-    color: "#111827",
+    color: Colors.light.text,
   },
   roleBadge: {
-    backgroundColor: "#22C55E",
+    backgroundColor: Colors.primary,
     borderRadius: 20,
     paddingHorizontal: 12,
     paddingVertical: 4,
   },
   roleText: {
-    color: "#FFFFFF",
+    color: Colors.dark.text,
     fontSize: 12,
     fontWeight: "600",
   },
@@ -118,13 +115,13 @@ const styles = StyleSheet.create({
   },
   stageTag: {
     borderWidth: 1,
-    borderColor: "#86EFAC",
+    borderColor: Colors.secondary,
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 3,
   },
   stageTagText: {
-    color: "#16A34A",
+    color: Colors.primary,
     fontSize: 12,
     fontWeight: "500",
   },
