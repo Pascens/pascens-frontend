@@ -9,6 +9,7 @@ export const Colors = {
   primary: "#2FAB88",
   secondary: "#2FC767",
   gray: "#F4F6F4",
+  darkgray: "#95A5A6",
 
   light: {
     text: "#000000",
