@@ -1,10 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { StyleSheet, View } from 'react-native';
-import { Colors } from '../../constants/theme';
-import SearchBar from './SearchBar';
+import type { Meta, StoryObj } from "@storybook/react";
+import { StyleSheet, View } from "react-native";
+import SearchBar from "./SearchBar";
 
 const meta = {
-  title: 'Components/SearchBar',
+  title: "Components/SearchBar",
   component: SearchBar,
   decorators: [
     (Story) => (
@@ -13,6 +12,11 @@ const meta = {
       </View>
     ),
   ],
+  argTypes: {
+    onScanPress: { action: "scan pressed" },
+    onGridPress: { action: "grid pressed" },
+    onFilterChange: { action: "filter changed" },
+  },
 } satisfies Meta<typeof SearchBar>;
 
 export default meta;
@@ -20,25 +24,45 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Nombre de producto o marca',
-    value: '',
-    onChangeText: (text) => console.log('Buscando:', text),
+    value: "",
+    onChangeText: () => {},
   },
 };
 
-export const WithValue: Story = {
+export const WithText: Story = {
   args: {
-    placeholder: 'Nombre de producto o marca',
-    value: 'Zucaritas',
-    onChangeText: (text) => console.log('Editando:', text),
+    value: "Leche",
+    onChangeText: () => {},
+  },
+};
+
+export const FilterHealthy: Story = {
+  args: {
+    value: "",
+    onChangeText: () => {},
+    activeFilter: "healthy",
+  },
+};
+
+export const FilterModerate: Story = {
+  args: {
+    value: "",
+    onChangeText: () => {},
+    activeFilter: "moderate",
+  },
+};
+
+export const FilterHarmful: Story = {
+  args: {
+    value: "",
+    onChangeText: () => {},
+    activeFilter: "harmful",
   },
 };
 
 const styles = StyleSheet.create({
   decorator: {
     flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: Colors.gray,
+    backgroundColor: "#F9FAFB",
   },
 });

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-native";
 import { Indicator } from "./Indicator";
 
 const meta = {
-  title: "Indicator",
+  title: "Components/Indicator",
   component: Indicator,
 } satisfies Meta<typeof Indicator>;
 
