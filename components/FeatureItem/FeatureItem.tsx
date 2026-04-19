@@ -30,7 +30,7 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({ title, subtitle, iconN
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle}</Text>i
+        <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
       <View style={[
         styles.statusCircle, 
