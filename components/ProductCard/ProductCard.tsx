@@ -30,10 +30,10 @@ const ProductCard = ({ name, imageUri, brand, nutriScore, isLiked = false }: Pro
         <Text style={styles.resultSubtitle}>{brand}</Text>
       </View>
       <NutriScoreBadge score={nutriScore} />
-      <Pressable onPress={() => setLiked((prev) => !prev)} hitSlop={8}>
+      <Pressable onPress={() => setLiked((prev) => !prev)} hitSlop={8} style={styles.favButton}>
         <MaterialIcons
           name={liked ? "favorite" : "favorite-border"}
-          size={22}
+          size={18}
           color={liked ? "#E74C3C" : "#95A5A6"}
         />
       </Pressable>
@@ -81,5 +81,13 @@ const styles = StyleSheet.create({
   resultSubtitle: {
     fontSize: 13,
     color: "#95A5A6",
+  },
+  favButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: "#F0F0F0",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
