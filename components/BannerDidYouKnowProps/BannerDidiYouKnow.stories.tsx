@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { InfoBanner } from "./BannerDidYouKnow";
 
 const meta = {
-  title: "Example/InfoBanner",
+  title: "Components/InfoBanner",
   component: InfoBanner,
   decorators: [
     (Story) => (

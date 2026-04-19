@@ -1,58 +1,168 @@
-import { MaterialIcons } from '@expo/vector-icons';
-import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
-import { Colors } from '../../constants/theme';
+import { MaterialIcons } from "@expo/vector-icons";
+import { useState } from "react";
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
-interface SearchBarProps {
-  placeholder?: string;
+type Filter = "all" | "healthy" | "moderate" | "harmful";
+
+interface Props {
   value: string;
   onChangeText: (text: string) => void;
+  onScanPress?: () => void;
+  onGridPress?: () => void;
+  activeFilter?: Filter;
+  onFilterChange?: (filter: Filter) => void;
 }
 
-/**
- * SearchBar Component
- * * @component
- */
-const SearchBar: React.FC<SearchBarProps> = ({ 
-  placeholder = "Nombre de producto o marca.", 
-  value, 
-  onChangeText 
-}) => {
+const FILTERS: { key: Filter; label: string; dot?: string }[] = [
+  { key: "all", label: "Todos" },
+  { key: "healthy", label: "Saludable", dot: "#10B981" },
+  { key: "moderate", label: "Moderado", dot: "#D97706" },
+  { key: "harmful", label: "Dañino", dot: "#EF4444" },
+];
+
+const SearchBar = ({
+  value,
+  onChangeText,
+  onScanPress,
+  onGridPress,
+  activeFilter: controlledFilter,
+  onFilterChange,
+}: Props) => {
+  const [internalFilter, setInternalFilter] = useState<Filter>("all");
+  const activeFilter = controlledFilter ?? internalFilter;
+
+  const handleFilterPress = (filter: Filter) => {
+    setInternalFilter(filter);
+    onFilterChange?.(filter);
+  };
+
   return (
     <View style={styles.container}>
-      <MaterialIcons name="search" size={24} color="Colors.darkgrey" style={styles.icon} />
-      <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        placeholderTextColor= "Colors.darkgrey"
-        value={value}
-        onChangeText={onChangeText}
-      />
+      <View style={styles.topRow}>
+        <View style={styles.searchField}>
+          <MaterialIcons name="search" size={18} color="#9CA3AF" style={styles.searchIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Buscar producto o marca..."
+            placeholderTextColor="#9CA3AF"
+            value={value}
+            onChangeText={onChangeText}
+          />
+        </View>
+        <Pressable style={styles.iconButton} onPress={onScanPress}>
+          <MaterialIcons name="crop-free" size={18} color="#9CA3AF" />
+        </Pressable>
+        <Pressable style={styles.iconButton} onPress={onGridPress}>
+          <MaterialIcons name="apps" size={18} color="#1F2937" />
+        </Pressable>
+      </View>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.filtersRow}
+      >
+        {FILTERS.map((f) => {
+          const isActive = activeFilter === f.key;
+          return (
+            <Pressable
+              key={f.key}
+              style={[styles.chip, isActive && styles.chipActive]}
+              onPress={() => handleFilterPress(f.key)}
+            >
+              {f.dot && !isActive && <View style={[styles.dot, { backgroundColor: f.dot }]} />}
+              <Text style={[styles.chipText, isActive && styles.chipTextActive]}>{f.label}</Text>
+            </Pressable>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
 
+export default SearchBar;
+
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.light.background, 
-    borderWidth: 2,
-    borderColor: Colors.secondary, 
-    borderRadius: 25,
-    paddingHorizontal: 15,
-    height: 50,
-    width: '100%',
-    marginVertical: 10,
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#F4F4F5",
+    paddingHorizontal: 16,
+    paddingTop: 14,
+    paddingBottom: 2,
+    gap: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+    elevation: 3,
   },
-  icon: {
-    marginRight: 10,
+  topRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    height: 40,
+  },
+  searchField: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#F5F5F4",
+    borderRadius: 20,
+    paddingLeft: 12,
+    paddingRight: 12,
+    height: 40,
+  },
+  searchIcon: {
+    marginRight: 6,
   },
   input: {
     flex: 1,
-    fontSize: 16,
-    color: Colors.light.text, 
+    fontSize: 14,
+    color: "#111827",
+    paddingVertical: 0,
+  },
+  iconButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#F5F5F4",
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  filtersRow: {
+    flexDirection: "row",
+    gap: 8,
+    paddingBottom: 2,
+  },
+  chip: {
+    flexDirection: "row",
+    alignItems: "center",
+    height: 28,
+    paddingHorizontal: 12,
+    backgroundColor: "#F5F5F4",
+    borderRadius: 999,
+    gap: 6,
+  },
+  chipActive: {
+    backgroundColor: "#1F2937",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.18,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+  },
+  chipText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#4B5563",
+  },
+  chipTextActive: {
+    color: "#FFFFFF",
   },
 });
-
-export default SearchBar;
