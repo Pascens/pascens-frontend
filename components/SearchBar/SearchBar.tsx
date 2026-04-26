@@ -62,16 +62,20 @@ const SearchBar = ({
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.filtersRow}
       >
-        {FILTERS.map((f) => {
-          const isActive = activeFilter === f.key;
+        {FILTERS.map((filter) => {
+          const isActive = activeFilter === filter.key;
           return (
             <Pressable
-              key={f.key}
+              key={filter.key}
               style={[styles.chip, isActive && styles.chipActive]}
-              onPress={() => handleFilterPress(f.key)}
+              onPress={() => handleFilterPress(filter.key)}
             >
-              {f.dot && !isActive && <View style={[styles.dot, { backgroundColor: f.dot }]} />}
-              <Text style={[styles.chipText, isActive && styles.chipTextActive]}>{f.label}</Text>
+              {filter.dot && !isActive && (
+                <View style={[styles.dot, { backgroundColor: filter.dot }]} />
+              )}
+              <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
+                {filter.label}
+              </Text>
             </Pressable>
           );
         })}
@@ -146,11 +150,6 @@ const styles = StyleSheet.create({
   },
   chipActive: {
     backgroundColor: "#1F2937",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.18,
-    shadowRadius: 8,
-    elevation: 4,
   },
   dot: {
     width: 8,

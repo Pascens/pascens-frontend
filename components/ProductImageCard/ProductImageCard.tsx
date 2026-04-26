@@ -1,8 +1,9 @@
+import { NutriScore, NutriScoreBadge } from "@/components/ProductCard/NutriScoreBadge";
 import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import { NutriScore, NutriScoreBadge } from "@/components/ProductCard/NutriScoreBadge";
 
 export interface Product {
   id: string;
@@ -24,59 +25,66 @@ interface Props {
 const ProductImageCard = ({ product, showExtra, isLiked = false, onToggleFav, onPress }: Props) => {
   const [liked, setLiked] = useState(isLiked);
 
+  const handleCardPress = (id: string): void => {
+    router.push(`/products/${id}`);
+  };
+
   return (
-  <Pressable
-    onPress={onPress}
-    style={({ pressed }) => [styles.card, pressed && styles.pressed]}
-  >
-    <View style={styles.imageContainer}>
-      {product.image ? (
-        <Image source={{ uri: product.image }} style={styles.image} resizeMode="cover" />
-      ) : (
-        <View style={styles.fallback}>
-          <MaterialIcons name="fastfood" size={32} color="#95A5A6" />
-        </View>
-      )}
+    <Pressable
+      onPress={() => handleCardPress(product.id)}
+      style={({ pressed }) => [styles.card, pressed && styles.pressed]}
+    >
+      <View style={styles.imageContainer}>
+        {product.image ? (
+          <Image source={{ uri: product.image }} style={styles.image} resizeMode="cover" />
+        ) : (
+          <View style={styles.fallback}>
+            <MaterialIcons name="fastfood" size={32} color="#95A5A6" />
+          </View>
+        )}
 
-      <LinearGradient
-        colors={["transparent", "rgba(0,0,0,0.10)", "rgba(0,0,0,0.65)"]}
-        locations={[0, 0.35, 1]}
-        style={StyleSheet.absoluteFillObject}
-      />
-
-      <View style={styles.nutriBadge}>
-        <NutriScoreBadge score={product.nutriScore} />
-      </View>
-
-      <Pressable
-        onPress={() => { setLiked((prev) => !prev); onToggleFav?.(); }}
-        hitSlop={6}
-        style={styles.favButton}
-      >
-        <MaterialIcons
-          name={liked ? "favorite" : "favorite-border"}
-          size={14}
-          color={liked ? "#E74C3C" : "#95A5A6"}
+        <LinearGradient
+          colors={["transparent", "rgba(0,0,0,0.10)", "rgba(0,0,0,0.65)"]}
+          locations={[0, 0.35, 1]}
+          style={StyleSheet.absoluteFillObject}
         />
-      </Pressable>
 
-      {showExtra === "alerts" && !!product.alerts?.length && (
-        <View style={styles.alertsBadge}>
-          <MaterialIcons name="error" size={12} color="#fff" />
-          <Text style={styles.alertsCount}>{product.alerts.length}</Text>
+        <View style={styles.nutriBadge}>
+          <NutriScoreBadge score={product.nutriScore} />
         </View>
-      )}
 
-      <View style={styles.nameOverlay}>
-        <Text style={styles.productName} numberOfLines={1}>
-          {product.name}
-        </Text>
-        <Text style={styles.productBrand} numberOfLines={1}>
-          {product.brand}
-        </Text>
+        <Pressable
+          onPress={() => {
+            setLiked((prev) => !prev);
+            onToggleFav?.();
+          }}
+          hitSlop={6}
+          style={styles.favButton}
+        >
+          <MaterialIcons
+            name={liked ? "favorite" : "favorite-border"}
+            size={14}
+            color={liked ? "#E74C3C" : "#95A5A6"}
+          />
+        </Pressable>
+
+        {showExtra === "alerts" && !!product.alerts?.length && (
+          <View style={styles.alertsBadge}>
+            <MaterialIcons name="error" size={12} color="#fff" />
+            <Text style={styles.alertsCount}>{product.alerts.length}</Text>
+          </View>
+        )}
+
+        <View style={styles.nameOverlay}>
+          <Text style={styles.productName} numberOfLines={1}>
+            {product.name}
+          </Text>
+          <Text style={styles.productBrand} numberOfLines={1}>
+            {product.brand}
+          </Text>
+        </View>
       </View>
-    </View>
-  </Pressable>
+    </Pressable>
   );
 };
 

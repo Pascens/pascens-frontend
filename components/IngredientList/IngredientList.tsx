@@ -1,9 +1,9 @@
-import { Ionicons } from '@expo/vector-icons';
-import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { IndicatorType } from '../../constants/indicators';
-import { Colors } from '../../constants/theme';
-import { IngredientListItem } from '../IngredientListItem/IngredientListItem';
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { IndicatorType } from "../../constants/indicators";
+import { Colors } from "../../constants/theme";
+import { IngredientListItem } from "../IngredientListItem/IngredientListItem";
 
 interface Ingredient {
   id: string;
@@ -33,14 +33,13 @@ export const IngredientList: React.FC<IngredientListProps> = ({
   headerSubtitle,
   categories,
 }) => {
-  
   const [expandedCategories, setExpandedCategories] = useState<string[]>(
-    categories.map(c => c.title)
+    categories.map((c) => c.title),
   );
 
   const toggleCategory = (title: string) => {
-    setExpandedCategories(prev =>
-      prev.includes(title) ? prev.filter(t => t !== title) : [...prev, title]
+    setExpandedCategories((prev) =>
+      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title],
     );
   };
 
@@ -53,12 +52,11 @@ export const IngredientList: React.FC<IngredientListProps> = ({
 
       {categories.map((category) => {
         const isExpanded = expandedCategories.includes(category.title);
-        
+
         return (
           <View key={category.title} style={styles.categoryContainer}>
-
-            <TouchableOpacity 
-              style={styles.categoryHeader} 
+            <TouchableOpacity
+              style={styles.categoryHeader}
               onPress={() => toggleCategory(category.title)}
               activeOpacity={0.7}
             >
@@ -68,22 +66,21 @@ export const IngredientList: React.FC<IngredientListProps> = ({
                   {category.title}
                 </Text>
               </View>
-              
+
               <View style={styles.categoryRight}>
-                <View style={styles.countBadge}>
+                <View style={[styles.countBadge, { backgroundColor: `${category.color}1A` }]}>
                   <Text style={[styles.countText, { color: category.color }]}>
                     {category.ingredients.length}
                   </Text>
                 </View>
-                <Ionicons 
-                  name={isExpanded ? "chevron-up" : "chevron-down"} 
-                  size={20} 
-                  color={Colors.gray} 
+                <Ionicons
+                  name={isExpanded ? "chevron-up" : "chevron-down"}
+                  size={20}
+                  color={Colors.mediunGray}
                 />
               </View>
             </TouchableOpacity>
 
-          
             {isExpanded && (
               <View style={styles.ingredientsContent}>
                 {category.ingredients.map((item, index) => (
@@ -117,12 +114,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: "800",
     color: Colors.light.text,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 12,
     color: Colors.darkGray,
     marginTop: 4,
   },
@@ -130,15 +127,15 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   categoryHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     padding: 16,
     backgroundColor: Colors.light.background,
   },
   categoryInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   categoryDot: {
     width: 14,
@@ -148,38 +145,35 @@ const styles = StyleSheet.create({
   },
   categoryTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: "700",
   },
   categoryRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   countBadge: {
-    backgroundColor: Colors.gray,
     width: 24,
     height: 24,
     borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginRight: 12,
   },
   countText: {
     fontSize: 12,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
-  ingredientsContent: {
-    paddingLeft: 8, 
-  },
+  ingredientsContent: {},
   separator: {
     height: 1,
     backgroundColor: Colors.gray,
-    marginLeft: 40,
+    marginLeft: 16,
   },
   categorySeparator: {
     height: 1,
     backgroundColor: Colors.gray,
     marginHorizontal: 16,
-  }
+  },
 });
 
 export default IngredientList;

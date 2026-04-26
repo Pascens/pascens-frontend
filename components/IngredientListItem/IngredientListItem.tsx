@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { INDICATOR_CONFIG, IndicatorType } from '../../constants/indicators';
 import { Colors } from '../../constants/theme';
 import IndicatorIcon from '../IndicatorIcon/IndicatorIcon';
+import IndicatorInfoSheet from '../IndicatorInfoSheet/IndicatorInfoSheet';
 
 interface IngredientListItemProps {
   name: string;
@@ -24,36 +25,46 @@ export const IngredientListItem: React.FC<IngredientListItemProps> = ({
   onPress,
   onIndicatorPress,
 }) => {
-  return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={onPress}
-      disabled={!onPress}
-      activeOpacity={onPress ? 0.7 : 1}
-    >
-      <View style={styles.leftSection}>
-        <View style={[styles.dot, { backgroundColor: dotColor }]} />
-        <Text style={styles.name}>
-          {name}
-        </Text>
-      </View>
+  const [openType, setOpenType] = useState<IndicatorType | null>(null);
 
-      <View style={styles.rightSection}>
-        {indicatorTypes.map((type) => {
-          const config = INDICATOR_CONFIG[type];
-          return (
-            <IndicatorIcon
-              key={type}
-              icon={config.icon}
-              backgroundColor={config.backgroundColor}
-              iconColor={config.iconColor}
-              onPress={() => onIndicatorPress?.(type)}
-              style={styles.indicatorGap}
-            />
-          );
-        })}
-      </View>
-    </TouchableOpacity>
+  return (
+    <>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={onPress}
+        disabled={!onPress}
+        activeOpacity={onPress ? 0.7 : 1}
+      >
+        <View style={styles.leftSection}>
+          <View style={[styles.dot, { backgroundColor: dotColor }]} />
+          <Text style={styles.name}>
+            {name}
+          </Text>
+        </View>
+
+        <View style={styles.rightSection}>
+          {indicatorTypes.map((type) => {
+            const config = INDICATOR_CONFIG[type];
+            if (!config) return null;
+            return (
+              <IndicatorIcon
+                key={type}
+                icon={config.icon}
+                backgroundColor={config.backgroundColor}
+                iconColor={config.iconColor}
+                onPress={() => {
+                  setOpenType(type);
+                  onIndicatorPress?.(type);
+                }}
+                style={styles.indicatorGap}
+              />
+            );
+          })}
+        </View>
+      </TouchableOpacity>
+
+      <IndicatorInfoSheet type={openType} onClose={() => setOpenType(null)} />
+    </>
   );
 };
 

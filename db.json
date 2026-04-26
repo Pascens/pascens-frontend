@@ -1,0 +1,694 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Zucaritas",
+      "brand": "Kellogg's",
+      "category": "Cereal",
+      "image_url": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=800&q=80",
+      "alert": true,
+      "score": {
+        "unhealthy": 3,
+        "moderate": 2,
+        "healthy": 5
+      },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "antioxidant", "label": "Antioxidant", "icon": "shield" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 10,
+        "list": [
+          { "id": "ing_001", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed", "additive"] },
+          { "id": "ing_002", "name": "High Fructose Corn Syrup", "classification": "unhealthy", "indicators": ["ultra_processed", "additive"] },
+          { "id": "ing_003", "name": "Barley Malt", "classification": "unhealthy", "indicators": ["allergen"] }
+        ],
+        "summary": { "unhealthy": 3, "moderate": 0, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "75007614",
+      "name": "Coca-Cola",
+      "brand": "Coca-Cola",
+      "category": "Soft Drink",
+      "image_url": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800&q=80",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_101", "name": "Carbonated Water", "classification": "moderate", "indicators": [] },
+          { "id": "ing_102", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_103", "name": "Caramel Color", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_104", "name": "Phosphoric Acid", "classification": "unhealthy", "indicators": ["additive", "preservative"] },
+          { "id": "ing_105", "name": "Caffeine", "classification": "moderate", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 3, "moderate": 2, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_003",
+      "name": "Doritos Nacho",
+      "brand": "Sabritas",
+      "category": "Snacks",
+      "image_url": "https://picsum.photos/seed/doritos/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_301", "name": "Corn", "classification": "moderate", "indicators": ["natural"] },
+          { "id": "ing_302", "name": "Vegetable Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_303", "name": "Cheese Powder", "classification": "unhealthy", "indicators": ["allergen", "additive"] },
+          { "id": "ing_304", "name": "Monosodium Glutamate", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_305", "name": "Artificial Colors", "classification": "unhealthy", "indicators": ["additive", "ultra_processed"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_004",
+      "name": "Galletas Marías",
+      "brand": "Gamesa",
+      "category": "Galletas",
+      "image_url": "https://picsum.photos/seed/marias/800/600",
+      "alert": false,
+      "score": { "unhealthy": 2, "moderate": 2, "healthy": 1 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_401", "name": "Wheat Flour", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_402", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_403", "name": "Vegetable Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_404", "name": "Milk Powder", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_405", "name": "Vitamin Mix", "classification": "healthy", "indicators": ["natural"] }
+        ],
+        "summary": { "unhealthy": 2, "moderate": 2, "healthy": 1 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_005",
+      "name": "Pan Bimbo Blanco",
+      "brand": "Bimbo",
+      "category": "Panadería",
+      "image_url": "https://picsum.photos/seed/bimbo/800/600",
+      "alert": false,
+      "score": { "unhealthy": 1, "moderate": 3, "healthy": 1 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_501", "name": "Wheat Flour", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_502", "name": "Water", "classification": "healthy", "indicators": ["natural"] },
+          { "id": "ing_503", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_504", "name": "Yeast", "classification": "moderate", "indicators": ["natural"] },
+          { "id": "ing_505", "name": "Calcium Propionate", "classification": "moderate", "indicators": ["preservative"] }
+        ],
+        "summary": { "unhealthy": 1, "moderate": 3, "healthy": 1 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_006",
+      "name": "Yoplait Fresa",
+      "brand": "Yoplait",
+      "category": "Lácteos",
+      "image_url": "https://picsum.photos/seed/yoplait/800/600",
+      "alert": false,
+      "score": { "unhealthy": 2, "moderate": 2, "healthy": 1 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_601", "name": "Milk", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_602", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_603", "name": "Strawberry", "classification": "healthy", "indicators": ["natural"] },
+          { "id": "ing_604", "name": "Artificial Flavors", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_605", "name": "Pectin", "classification": "moderate", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 2, "moderate": 2, "healthy": 1 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_007",
+      "name": "Leche Lala Entera",
+      "brand": "Lala",
+      "category": "Lácteos",
+      "image_url": "https://picsum.photos/seed/lala/800/600",
+      "alert": false,
+      "score": { "unhealthy": 0, "moderate": 2, "healthy": 4 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" },
+        { "type": "antioxidant", "label": "Antioxidant", "icon": "shield" }
+      ],
+      "ingredients": {
+        "total_analyzed": 3,
+        "list": [
+          { "id": "ing_701", "name": "Whole Milk", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_702", "name": "Vitamin A", "classification": "healthy", "indicators": ["natural", "antioxidant"] },
+          { "id": "ing_703", "name": "Vitamin D", "classification": "healthy", "indicators": ["natural"] }
+        ],
+        "summary": { "unhealthy": 0, "moderate": 1, "healthy": 2 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_008",
+      "name": "Choco Krispis",
+      "brand": "Kellogg's",
+      "category": "Cereal",
+      "image_url": "https://picsum.photos/seed/chocokrispis/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_801", "name": "Rice", "classification": "moderate", "indicators": ["natural"] },
+          { "id": "ing_802", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_803", "name": "Cocoa", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_804", "name": "Barley Malt", "classification": "unhealthy", "indicators": ["allergen"] },
+          { "id": "ing_805", "name": "Artificial Flavors", "classification": "unhealthy", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_009",
+      "name": "Nutella",
+      "brand": "Ferrero",
+      "category": "Untables",
+      "image_url": "https://picsum.photos/seed/nutella/800/600",
+      "alert": true,
+      "score": { "unhealthy": 5, "moderate": 0, "healthy": 0 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" }
+      ],
+      "ingredients": {
+        "total_analyzed": 6,
+        "list": [
+          { "id": "ing_901", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_902", "name": "Palm Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_903", "name": "Hazelnuts", "classification": "moderate", "indicators": ["allergen", "natural"] },
+          { "id": "ing_904", "name": "Cocoa", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_905", "name": "Skim Milk", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_906", "name": "Soy Lecithin", "classification": "unhealthy", "indicators": ["allergen", "additive"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 2, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_010",
+      "name": "Pringles Original",
+      "brand": "Pringles",
+      "category": "Snacks",
+      "image_url": "https://picsum.photos/seed/pringles/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1001", "name": "Dehydrated Potatoes", "classification": "moderate", "indicators": ["ultra_processed"] },
+          { "id": "ing_1002", "name": "Vegetable Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1003", "name": "Rice Flour", "classification": "moderate", "indicators": ["natural"] },
+          { "id": "ing_1004", "name": "Salt", "classification": "unhealthy", "indicators": [] },
+          { "id": "ing_1005", "name": "Monosodium Glutamate", "classification": "unhealthy", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 3, "moderate": 2, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_011",
+      "name": "Oreo",
+      "brand": "Nabisco",
+      "category": "Galletas",
+      "image_url": "https://picsum.photos/seed/oreo/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1101", "name": "Wheat Flour", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_1102", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1103", "name": "Palm Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1104", "name": "Cocoa", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1105", "name": "High Fructose Corn Syrup", "classification": "unhealthy", "indicators": ["ultra_processed", "additive"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_012",
+      "name": "Gatorade Lima Limón",
+      "brand": "Gatorade",
+      "category": "Bebidas",
+      "image_url": "https://picsum.photos/seed/gatorade/800/600",
+      "alert": false,
+      "score": { "unhealthy": 2, "moderate": 2, "healthy": 1 },
+      "indicators": [
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1201", "name": "Water", "classification": "healthy", "indicators": ["natural"] },
+          { "id": "ing_1202", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1203", "name": "Citric Acid", "classification": "moderate", "indicators": ["preservative"] },
+          { "id": "ing_1204", "name": "Sodium Citrate", "classification": "moderate", "indicators": ["additive"] },
+          { "id": "ing_1205", "name": "Artificial Colors", "classification": "unhealthy", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 2, "moderate": 2, "healthy": 1 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_013",
+      "name": "Fanta Naranja",
+      "brand": "Coca-Cola",
+      "category": "Bebidas",
+      "image_url": "https://picsum.photos/seed/fanta/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1301", "name": "Carbonated Water", "classification": "moderate", "indicators": [] },
+          { "id": "ing_1302", "name": "Sugar", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1303", "name": "Citric Acid", "classification": "unhealthy", "indicators": ["preservative"] },
+          { "id": "ing_1304", "name": "Artificial Flavors", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_1305", "name": "Artificial Colors", "classification": "unhealthy", "indicators": ["additive"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_014",
+      "name": "Sprite",
+      "brand": "Coca-Cola",
+      "category": "Bebidas",
+      "image_url": "https://picsum.photos/seed/sprite/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" },
+        { "type": "preservative", "label": "Preservative", "icon": "drop" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1401", "name": "Carbonated Water", "classification": "moderate", "indicators": [] },
+          { "id": "ing_1402", "name": "High Fructose Corn Syrup", "classification": "unhealthy", "indicators": ["ultra_processed", "additive"] },
+          { "id": "ing_1403", "name": "Citric Acid", "classification": "unhealthy", "indicators": ["preservative"] },
+          { "id": "ing_1404", "name": "Natural Flavors", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_1405", "name": "Sodium Benzoate", "classification": "unhealthy", "indicators": ["preservative"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_015",
+      "name": "Maruchan Pollo",
+      "brand": "Maruchan",
+      "category": "Sopas",
+      "image_url": "https://picsum.photos/seed/maruchan/800/600",
+      "alert": true,
+      "score": { "unhealthy": 4, "moderate": 1, "healthy": 0 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "additive", "label": "Additive", "icon": "bolt" },
+        { "type": "ultra_processed", "label": "Ultra Processed", "icon": "fire" }
+      ],
+      "ingredients": {
+        "total_analyzed": 5,
+        "list": [
+          { "id": "ing_1501", "name": "Wheat Noodles", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_1502", "name": "Palm Oil", "classification": "unhealthy", "indicators": ["ultra_processed"] },
+          { "id": "ing_1503", "name": "Salt", "classification": "unhealthy", "indicators": [] },
+          { "id": "ing_1504", "name": "Monosodium Glutamate", "classification": "unhealthy", "indicators": ["additive"] },
+          { "id": "ing_1505", "name": "Artificial Chicken Flavor", "classification": "unhealthy", "indicators": ["additive", "ultra_processed"] }
+        ],
+        "summary": { "unhealthy": 4, "moderate": 1, "healthy": 0 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_016",
+      "name": "Manzana Roja",
+      "brand": "Frescos",
+      "category": "Frutas",
+      "image_url": "https://picsum.photos/seed/manzana/800/600",
+      "alert": false,
+      "score": { "unhealthy": 0, "moderate": 0, "healthy": 5 },
+      "indicators": [
+        { "type": "natural", "label": "Natural", "icon": "leaf" },
+        { "type": "antioxidant", "label": "Antioxidant", "icon": "shield" }
+      ],
+      "ingredients": {
+        "total_analyzed": 1,
+        "list": [
+          { "id": "ing_1601", "name": "Apple", "classification": "healthy", "indicators": ["natural", "antioxidant"] }
+        ],
+        "summary": { "unhealthy": 0, "moderate": 0, "healthy": 1 }
+      },
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_017",
+      "name": "Yogurt Griego Natural",
+      "brand": "Danone",
+      "category": "Lácteos",
+      "image_url": "https://picsum.photos/seed/griego/800/600",
+      "alert": false,
+      "score": { "unhealthy": 0, "moderate": 1, "healthy": 4 },
+      "indicators": [
+        { "type": "allergen", "label": "Allergen", "icon": "warning-triangle" },
+        { "type": "natural", "label": "Natural", "icon": "leaf" }
+      ],
+      "ingredients": {
+        "total_analyzed": 3,
+        "list": [
+          { "id": "ing_1701", "name": "Milk", "classification": "moderate", "indicators": ["allergen"] },
+          { "id": "ing_1702", "name": "Live Cultures", "classification": "healthy", "indicators": ["natural"] },
+          { "id": "ing_1703", "name": "Cream", "classification": "healthy", "indicators": ["natural"] }
+        ],
+        "summary": { "unhealthy": 0, "moderate": 1, "healthy": 2 }
+      },
+      "saved_to_favorites": false
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "name": "Arturo García",
+      "stage": "Adulto",
+      "conditions": ["Diabetes tipo 2", "Hipotiroidismo", "Hipertiroidismo"],
+      "photoUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80",
+      "iconKey": "user"
+    },
+    {
+      "id": "2",
+      "name": "Sofía",
+      "stage": "Adulto",
+
+      "conditions": ["Diabetes tipo 2"],
+      "photoUrl": "https://images.unsplash.com/photo-1745434159123-4908d0b9df94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80",
+      "iconKey": "user"
+    },
+    {
+      "id": "3",
+      "name": "Emma",
+      "stage": "Niño",
+
+      "conditions": [],
+      "photoUrl": "https://images.unsplash.com/photo-1722596574038-7ac7b0857c1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80",
+      "iconKey": "baby"
+    },
+    {
+      "id": "4",
+      "name": "Abuela Rosa",
+      "stage": "Adulto",
+      "conditions": ["Hipotiroidismo", "Hipertiroidismo"],
+      "photoUrl": "https://images.unsplash.com/photo-1496672254107-b07a26403885?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80",
+      "iconKey": "elder"
+    }
+  ],
+  "banners": [
+    {
+      "id": "1",
+      "type": "warning",
+      "title": "Jarabe de maíz de alta fructosa",
+      "description": "Presente en más del 73% de los cereales para niños.",
+      "note": "Evítalo si aparece entre los primeros 3 ingredientes.",
+      "image": {
+        "src": "https://picsum.photos/seed/jarabe/800/500",
+        "alt": "Jarabe de maíz de alta fructosa"
+      }
+    },
+    {
+      "id": "2",
+      "type": "promo",
+      "title": "Azúcar añadida",
+      "description": "Puede aparecer bajo más de 50 nombres distintos.",
+      "image": {
+        "src": "https://picsum.photos/seed/azucar/800/500",
+        "alt": "Azúcar añadida"
+      }
+    },
+    {
+      "id": "3",
+      "type": "warning",
+      "title": "Grasas trans",
+      "description": "Aumentan el colesterol malo y reducen el bueno, presentes en muchos productos ultraprocesados.",
+      "note": "Busca 'aceite parcialmente hidrogenado' en la etiqueta.",
+      "image": {
+        "src": "https://picsum.photos/seed/grasas/800/500",
+        "alt": "Grasas trans"
+      }
+    },
+    {
+      "type": "promo",
+      "title": "Sodio oculto",
+      "description": "El 70% del sodio que consumimos proviene de alimentos procesados, no del salero.",
+      "image": {
+        "src": "https://picsum.photos/seed/sodio/800/500",
+        "alt": "Sodio oculto"
+      }
+    }
+  ],
+  "products-simple": [
+    {
+      "id": "prod_001",
+      "name": "Zucaritas",
+      "brand": "Kellogg's",
+      "category": "Cereal",
+      "image": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=800&q=80",
+      "nutriScore": "D",
+      "date": "2026-04-24T14:30:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "75007614",
+      "name": "Coca-Cola",
+      "brand": "Coca-Cola",
+      "category": "Soft Drink",
+      "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800&q=80",
+      "nutriScore": "E",
+      "date": "2026-04-24T14:30:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_003",
+      "name": "Doritos Nacho",
+      "brand": "Sabritas",
+      "category": "Snacks",
+      "image": "https://picsum.photos/seed/doritos/800/600",
+      "nutriScore": "D",
+      "date": "2026-04-02T09:15:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_004",
+      "name": "Galletas Marías",
+      "brand": "Gamesa",
+      "category": "Galletas",
+      "image": "https://picsum.photos/seed/marias/800/600",
+      "nutriScore": "C",
+      "date": "2026-04-04T11:00:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_005",
+      "name": "Pan Bimbo Blanco",
+      "brand": "Bimbo",
+      "category": "Panadería",
+      "image": "https://picsum.photos/seed/bimbo/800/600",
+      "nutriScore": "B",
+      "date": "2026-04-05T08:30:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_006",
+      "name": "Yoplait Fresa",
+      "brand": "Yoplait",
+      "category": "Lácteos",
+      "image": "https://picsum.photos/seed/yoplait/800/600",
+      "nutriScore": "C",
+      "date": "2026-04-07T17:45:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_007",
+      "name": "Leche Lala Entera",
+      "brand": "Lala",
+      "category": "Lácteos",
+      "image": "https://picsum.photos/seed/lala/800/600",
+      "nutriScore": "B",
+      "date": "2026-04-08T07:20:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_008",
+      "name": "Choco Krispis",
+      "brand": "Kellogg's",
+      "category": "Cereal",
+      "image": "https://picsum.photos/seed/chocokrispis/800/600",
+      "nutriScore": "D",
+      "date": "2026-04-10T08:00:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_009",
+      "name": "Nutella",
+      "brand": "Ferrero",
+      "category": "Untables",
+      "image": "https://picsum.photos/seed/nutella/800/600",
+      "nutriScore": "E",
+      "date": "2026-04-12T19:10:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_010",
+      "name": "Pringles Original",
+      "brand": "Pringles",
+      "category": "Snacks",
+      "image": "https://picsum.photos/seed/pringles/800/600",
+      "nutriScore": "D",
+      "date": "2026-04-13T20:25:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_011",
+      "name": "Oreo",
+      "brand": "Nabisco",
+      "category": "Galletas",
+      "image": "https://picsum.photos/seed/oreo/800/600",
+      "nutriScore": "D",
+      "date": "2026-04-15T16:00:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_012",
+      "name": "Gatorade Lima Limón",
+      "brand": "Gatorade",
+      "category": "Bebidas",
+      "image": "https://picsum.photos/seed/gatorade/800/600",
+      "nutriScore": "C",
+      "date": "2026-04-17T13:30:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_013",
+      "name": "Fanta Naranja",
+      "brand": "Coca-Cola",
+      "category": "Bebidas",
+      "image": "https://picsum.photos/seed/fanta/800/600",
+      "nutriScore": "E",
+      "date": "2026-04-18T15:50:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_014",
+      "name": "Sprite",
+      "brand": "Coca-Cola",
+      "category": "Bebidas",
+      "image": "https://picsum.photos/seed/sprite/800/600",
+      "nutriScore": "E",
+      "date": "2026-04-19T18:00:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_015",
+      "name": "Maruchan Pollo",
+      "brand": "Maruchan",
+      "category": "Sopas",
+      "image": "https://picsum.photos/seed/maruchan/800/600",
+      "nutriScore": "D",
+      "date": "2026-04-20T12:40:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_016",
+      "name": "Manzana Roja",
+      "brand": "Frescos",
+      "category": "Frutas",
+      "image": "https://picsum.photos/seed/manzana/800/600",
+      "nutriScore": "A",
+      "date": "2026-04-21T10:00:00.000Z",
+      "saved_to_favorites": false
+    },
+    {
+      "id": "prod_017",
+      "name": "Yogurt Griego Natural",
+      "brand": "Danone",
+      "category": "Lácteos",
+      "image": "https://picsum.photos/seed/griego/800/600",
+      "nutriScore": "A",
+      "date": "2026-04-23T09:20:00.000Z",
+      "saved_to_favorites": false
+    }
+  ]
+}
