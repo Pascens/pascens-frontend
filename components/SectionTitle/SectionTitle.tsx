@@ -2,20 +2,27 @@ import { Colors } from "@/constants/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface SectionTitleProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   preTitle?: string;
+  height?: number;
 }
 
-const SectionTitle: FC<SectionTitleProps> = ({ title, subtitle, preTitle }) => {
+const SectionTitle: FC<SectionTitleProps> = ({ title, subtitle, preTitle, height }) => {
+  const insets = useSafeAreaInsets();
   return (
     <LinearGradient
       colors={[Colors.secondary, Colors.primary]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0.7, y: 1 }}
-      style={styles.container}
+      style={[
+        styles.container,
+        { paddingTop: insets.top },
+        height !== undefined && { height: height + insets.top },
+      ]}
     >
       {/* Decorative circles */}
       <View style={styles.circleTopRight} />
@@ -35,7 +42,6 @@ const styles = StyleSheet.create({
     position: "relative",
     overflow: "hidden",
     paddingHorizontal: 20,
-    paddingTop: 40,
     paddingBottom: 20,
   },
   circleTopRight: {
@@ -64,7 +70,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "500",
     marginBottom: 4,
-    textTransform: "uppercase",
     letterSpacing: 0.5,
   },
   title: {

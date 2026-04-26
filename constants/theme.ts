@@ -10,16 +10,16 @@ export const Colors = {
   secondary: "#2FC767",
   gray: "#F4F6F4",
   darkGray: "#95A5A6",
+  mediunGray: "#C5CBD3",
   fadedRed: "#FDECEA",
   red: "#E74C3C",
   orange: "#E67E22",
   fadedOrange: "#FEF3E2",
   purple: "#8E44AD",
-  fadedPurple:"#f3e5f5",
-  blue:"#3498DB",
-  fadedBlue:"#EBF5FB",
+  fadedPurple: "#f3e5f5",
+  blue: "#3498DB",
+  fadedBlue: "#EBF5FB",
   fadedGreen: "#2FAB881A",
-
 
   light: {
     text: "#000000",
@@ -55,4 +55,3 @@ export const Fonts = Platform.select({
     mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
   },
 });
- 

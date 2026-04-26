@@ -19,7 +19,7 @@ export const InfoBanner = ({
     <ImageBackground
       source={image}
       style={styles.background}
-      imageStyle={styles.image}
+      resizeMode="cover"
     >
       <View style={styles.overlay}>
         <View style={styles.badge}>
@@ -27,22 +27,32 @@ export const InfoBanner = ({
             {type === "warning" ? "Ten cuidado" : "¿Sabías que?"}
           </Text>
         </View>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
-        {note && <Text style={styles.note}> {note}</Text>}
+        <View style={styles.textBlock}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+          {note && <Text style={styles.note}> {note}</Text>}
+        </View>
       </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  background: { borderRadius: 14, overflow: "hidden" },
-  image: { opacity: 0.85 },
+  background: {
+    borderRadius: 14,
+    overflow: "hidden",
+    aspectRatio: 16 / 10,
+    backgroundColor: "#000",
+  },
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.55)",
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
     padding: 16,
+    paddingBottom: 36,
+    justifyContent: "space-between",
+  },
+  textBlock: {
     gap: 6,
-    backdropFilter: "blur(12px)",
   },
   badge: {
     backgroundColor: "rgba(255,255,255,0.15)",

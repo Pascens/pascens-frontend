@@ -1,5 +1,5 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
 import ProductImageCard, { Product } from "@/components/ProductImageCard/ProductImageCard";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 interface Props {
   title?: string;
@@ -20,22 +20,22 @@ const ProductCarousel = ({
 }: Props) => (
   <View style={styles.container}>
     {title && <Text style={styles.title}>{title}</Text>}
-    <FlatList
-      data={products}
+    <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContent}
-      renderItem={({ item }) => (
+    >
+      {products.map((item) => (
         <ProductImageCard
+          key={item.id}
           product={item}
           showExtra={showExtra}
           isLiked={favIds.includes(item.id)}
           onToggleFav={() => onToggleFav?.(item.id)}
           onPress={() => onPressProduct?.(item.id)}
         />
-      )}
-    />
+      ))}
+    </ScrollView>
   </View>
 );
 

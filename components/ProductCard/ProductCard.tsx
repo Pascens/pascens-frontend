@@ -9,13 +9,35 @@ interface Props {
   brand: string;
   nutriScore: NutriScore;
   isLiked?: boolean;
+  time?: string;
+  onPress?: () => void;
+  onToggleFav?: () => void;
 }
 
-const ProductCard = ({ name, imageUri, brand, nutriScore, isLiked = false }: Props) => {
-  const [liked, setLiked] = useState(isLiked);
+const ProductCard = ({
+  name,
+  imageUri,
+  brand,
+  nutriScore,
+  isLiked = false,
+  time,
+  onPress,
+  onToggleFav,
+}: Props) => {
+  const [internalLiked, setInternalLiked] = useState(isLiked);
+  const liked = onToggleFav ? isLiked : internalLiked;
+
+  const handleFavPress = () => {
+    if (onToggleFav) {
+      onToggleFav();
+    } else {
+      setInternalLiked((prev) => !prev);
+    }
+  };
 
   return (
     <Pressable
+      onPress={onPress}
       style={({ pressed }) => [styles.resultCard, pressed && { backgroundColor: "#F8F9FA" }]}
     >
       <View style={styles.productIcon}>
@@ -28,9 +50,15 @@ const ProductCard = ({ name, imageUri, brand, nutriScore, isLiked = false }: Pro
       <View style={styles.resultInfo}>
         <Text style={styles.resultName}>{name}</Text>
         <Text style={styles.resultSubtitle}>{brand}</Text>
+        {time && (
+          <View style={styles.timeRow}>
+            <MaterialIcons name="schedule" size={12} color="#C5CBD3" />
+            <Text style={styles.timeText}>{time}</Text>
+          </View>
+        )}
       </View>
       <NutriScoreBadge score={nutriScore} />
-      <Pressable onPress={() => setLiked((prev) => !prev)} hitSlop={8} style={styles.favButton}>
+      <Pressable onPress={handleFavPress} hitSlop={8} style={styles.favButton}>
         <MaterialIcons
           name={liked ? "favorite" : "favorite-border"}
           size={18}
@@ -81,6 +109,16 @@ const styles = StyleSheet.create({
   resultSubtitle: {
     fontSize: 13,
     color: "#95A5A6",
+  },
+  timeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 3,
+    marginTop: 2,
+  },
+  timeText: {
+    fontSize: 11,
+    color: "#C5CBD3",
   },
   favButton: {
     width: 36,

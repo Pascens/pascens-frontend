@@ -4,7 +4,6 @@ import Svg, { Path } from "react-native-svg";
 
 export type NutriScore = "A" | "B" | "C" | "D" | "E";
 type Variant = "healthy" | "moderate" | "harmful";
-type Size = "normal" | "large";
 
 const SCORE_VARIANT: Record<NutriScore, Variant> = {
   A: "healthy",
@@ -20,18 +19,20 @@ const COLORS: Record<Variant, string> = {
   harmful: "#E74C3C",
 };
 
+const ASPECT_RATIO = 36 / 32;
+
 interface Props {
   score: NutriScore;
-  size?: Size;
+  size?: number;
 }
 
-export function NutriScoreBadge({ score, size = "normal" }: Props) {
+export function NutriScoreBadge({ score, size = 32 }: Props) {
   const variant = SCORE_VARIANT[score];
   const color = COLORS[variant];
-  const isLarge = size === "large";
-  const width = isLarge ? 48 : 32;
-  const height = isLarge ? 56 : 36;
-  const iconSize = isLarge ? 24 : 14;
+  const width = size;
+  const height = size * ASPECT_RATIO;
+  const iconSize = size * 0.5;
+  const exclaimSize = size * 0.45;
 
   return (
     <View style={[styles.container, { width, height }]}>
@@ -45,10 +46,10 @@ export function NutriScoreBadge({ score, size = "normal" }: Props) {
         <View style={styles.iconWrapper}>
           {variant === "healthy" && <MaterialIcons name="check" size={iconSize} color="#fff" />}
           {variant === "moderate" && (
-            <Text style={[styles.exclaim, { fontSize: isLarge ? 20 : 14 }]}>!</Text>
+            <Text style={[styles.exclaim, { fontSize: exclaimSize }]}>!</Text>
           )}
           {variant === "harmful" && (
-            <Text style={[styles.exclaim, { fontSize: isLarge ? 18 : 12 }]}>!!</Text>
+            <Text style={[styles.exclaim, { fontSize: exclaimSize }]}>!!</Text>
           )}
         </View>
       </View>
